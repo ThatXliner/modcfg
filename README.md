@@ -114,4 +114,4 @@ $ poetry install
 
 **Mod**ular **C**on**f**i**g**uration language.
 
-[documentation]: ./docs
+[documentation]: https://modcfg.readthedocs.io/en/latest/index.html
