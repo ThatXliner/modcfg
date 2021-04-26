@@ -1,6 +1,8 @@
 # ModCFG
 ![YEs](./noo.png)
 
+[![codecov](https://codecov.io/gh/ThatXliner/modcfg/branch/master/graph/badge.svg)](https://codecov.io/gh/ThatXliner/modcfg)
+
 > YEs, another configuration language
 
 Seriously, how many configuration languages do we have? From the top of my head, I can only name:
