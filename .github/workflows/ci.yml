@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install poetry
+          pip install poetry poethepoet
           poetry install
           poetry install  # Second time to install project
       - name: Run tests
