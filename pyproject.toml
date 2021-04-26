@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "modcfg"
+version = "0.1.0"
+description = ""
+authors = ["Bryan Hu <bryan.hu.2020@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+lark-parser = "^0.11.2"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.812"
+pylint = "^2.7.2"
+hypothesis = {extras = ["cli"], version = "^6.8.9"}
+pytest-cov = "^2.11.1"
+pytest = "^6.2.3"
+pytest-xdist = "^2.2.1"
+Sphinx = "^3.5.4"
+black = "^20.8b1"
+isort = "^5.8.0"
+
+[tool.poe.tasks]
+docs = {cmd = "sphinx-build docs build", help = "Build documentation"}
+
+format = ["black", "isort"]
+black = {cmd = "black .", help = "Run black on codebase"}
+isort = {cmd = "isort . --profile=black", help = "Run isort on codebase"}
+mypy = {cmd = "mypy modcfg --strict", help = "Run MyPy on codebase"}
+pylint = {cmd = "pylint modcfg --fail-under=8", help = "Run Pylint on codebase"}
+
+_black = {"cmd" = "black modcfg --check"}
+_isort = {"cmd" = "isort modcfg --check --profile=black"}
+style = ["_isort", "_black"]
+codebase = ["pylint","mypy"]
+lint = ["style", "codebase"]
+
+build = {cmd = "python -m lark modcfg/grammar.lark -o modcfg/lark.py", help = "Generate Lark standalone"}
+test = {cmd = "pytest -vvv", help = "Run test suite"}
+cov = {cmd = "pytest -vvv --cov=modcfg --cov-report=html", help = "Run test suite with codecoverage"}
+fcov = {cmd = "pytest -vvv --cov=modcfg --cov-report=html -n auto", help = "Run test suite with codecoverage in parallel. May decrease execution time"}
+ftest = {cmd = "pytest -vvv -n auto", help = "Run test suite in parallel. May decrease execution time"}
+codecov = {cmd = "pytest -vvv --cov=modcfg --cov-report=xml -n auto", help = "Reserved for CI. Basically runs `fcov` but the cov-report is xml."}
+_build = {shell = "diff $(python -m lark modcfg/grammar.lark) modcfg/lark.py", help = "Reserved for CI. Checks built lark.py"}
+_codecov = {shell = "curl -s https://codecov.io/bash | bash"}
+ci = [
+    "codecov",
+    "style",
+    # "_build",
+    "_codecov",
+]
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,64 @@
+%import common (WS_INLINE, NUMBER)  // TODO: Make `values with spaces: valid`
+%import python (HEX_NUMBER, OCT_NUMBER, BIN_NUMBER, IMAG_NUMBER)
+
+%ignore WS_INLINE
+%ignore /#[^\n]*/
+%declare _INDENT _DEDENT
+
+start: _NL* (module|container|_block{container})+ _NL*
+module: ("mod"i | "module"i) name _KV_CHAR (_block{dict}|_block{list}) _NL*
+
+?container: (dict | list)
+list:  _hang_sep{_list_thing, _NL}+
+    | _OPEN_BRACKET _hang_sep{value, _COMMA}? _CLOSE_BRACKET _NL*
+dict:  _hang_sep{pair, _NL}+
+    | _OPEN_BRACE _hang_sep{pair, _COMMA}? _CLOSE_BRACE _NL*
+pair: name _KV_CHAR value
+
+?value: raw_value
+      | container
+      | _block{container}
+
+?raw_value: name
+          | ALL_NUMBERS
+          | ENUM
+          | NULL
+          | functions
+          | BOOLEAN
+?name: MULTILINE_STR
+     | STRING
+     | CNAME
+ALL_NUMBERS: /-?\d+(\.\d+)?([eE][+-]?\d+)?/
+           //  NUMBER
+           // | HEX_NUMBER
+           // | OCT_NUMBER
+           // | BIN_NUMBER
+           // | IMAG_NUMBER
+
+?functions: DATETIME  // TODO: Deprecate functions; replace with direct dates ('clean' syntax: https://stackoverflow.com/a/3143231/15396573)
+          | DATE
+
+ENUM: /:(?:([a-zA-Z_][_a-zA-Z0-9]*).)?([a-zA-Z_][_a-zA-Z0-9]*)+/
+DATE: /date\s*\(\s*(\d{4})-(\d{2})-(\d{2})\s*\)/
+DATETIME: /datetime\s*\(\s*(.+)\s*\)/
+STRING: /t?l?r?(("(?!"").*?(?<!\\)(\\\\)*?"|'(?!'').*?(?<!\\)(\\\\)*?'))/
+MULTILINE_STR: /t?l?r?(("""(?:\s|.)*?(?<!\\)(\\\\)*?""")|('''(?:\s|.)*?(?<!\\)(\\\\)*?'''))/
+CNAME: /[a-zA-Z_]\w*/  // TODO: Unicode support
+NULL: "null"
+BOOLEAN: /\s*(true|false)/
+
+_list_thing: ("*"|"+"|"-") value?
+_NL: /(\r?\n[\t ]*)+/
+_KV_CHAR: ":"
+        | "=>"
+        | "->"
+        | "="
+
+_hang_sep{x, sep}: x (sep x)* sep?
+_block{x}: _NL _INDENT x+ _DEDENT
+_COMMA: /\s*,\s*/
+// for the indenter
+_OPEN_BRACKET: "["
+_OPEN_BRACE:  "{"
+_CLOSE_BRACKET: "]"
+_CLOSE_BRACE: "}"
