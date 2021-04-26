@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "modcfg"
 version = "0.1.0"
-description = ""
+description = "GPL-3.0-or-later"
 authors = ["Bryan Hu <bryan.hu.2020@gmail.com>"]
 
 [tool.poetry.dependencies]
