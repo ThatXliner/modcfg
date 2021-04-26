@@ -36,7 +36,7 @@ Finally, I just wanted an excuse to play with Lark.
 ### Examples
 
 Given this modcfg document:
-```toml
+```yaml
 module hello_world:
     hello => world
     this: "also works"
