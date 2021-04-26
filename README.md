@@ -1,7 +1,7 @@
 # ModCFG
 ![YEs](./noo.png)
 
-[![codecov](https://codecov.io/gh/ThatXliner/modcfg/branch/master/graph/badge.svg)](https://codecov.io/gh/ThatXliner/modcfg)
+[![codecov](https://codecov.io/gh/ThatXliner/modcfg/branch/master/graph/badge.svg)](https://codecov.io/gh/ThatXliner/modcfg) [![Documentation Status](https://readthedocs.org/projects/modcfg/badge/?version=latest)](https://modcfg.readthedocs.io/en/latest/?badge=latest) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![CI](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml)
 
 > YEs, another configuration language
 
