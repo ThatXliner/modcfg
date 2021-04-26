@@ -1,8 +1,23 @@
 [tool.poetry]
 name = "modcfg"
-version = "0.1.0"
-description = "GPL-3.0-or-later"
+version = "0.1.1"
+description = "Yes another config lang"
+license = "GPL-3.0-or-later"
 authors = ["Bryan Hu <bryan.hu.2020@gmail.com>"]
+readme = "README.md"
+documentation = "https://modcfg.readthedocs.io/en/latest/"
+repository = "https://github.com/ThatXliner/modcfg"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Typing :: Typed",
+    "Topic :: Software Development :: Compilers",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/ThatXliner/modcfg/issues"
+
 
 [tool.poetry.dependencies]
 python = "^3.7"
