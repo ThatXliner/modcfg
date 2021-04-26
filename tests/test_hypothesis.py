@@ -8,7 +8,7 @@ from enum import Enum
 from functools import lru_cache
 
 import modcfg.parser
-from hypothesis import HealthCheck, assume, given, settings
+from hypothesis import HealthCheck, assume, given, settings, reproduce_failure
 from hypothesis import strategies as st
 from modcfg import Module
 
@@ -161,7 +161,7 @@ def test_roundtrip_loads_dumps(enum_resolve_fail_silently, enums, objects):
 
 @given(
     stuff=st.characters(min_codepoint=0, max_codepoint=sys.maxunicode + 1).filter(
-        lambda x: x not in string.whitespace
+        lambda x: x not in string.whitespace + string.ascii_letters
     )
 )
 def test_unicode_escapes(stuff):
