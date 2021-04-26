@@ -1,5 +1,5 @@
 # ModCFG
-![YEs](./noo.png)
+![YEs](https://raw.githubusercontent.com/ThatXliner/modcfg/master/noo.png)
 
 [![codecov](https://codecov.io/gh/ThatXliner/modcfg/branch/master/graph/badge.svg)](https://codecov.io/gh/ThatXliner/modcfg) [![Documentation Status](https://readthedocs.org/projects/modcfg/badge/?version=latest)](https://modcfg.readthedocs.io/en/latest/?badge=latest) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![CI](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml)
 
@@ -81,8 +81,10 @@ The output is
 Crazy, right? It gets better with enums and date(time)s... You might as well read the whole [documentation][documentation].
 
 ## Installation
-
-I have not uploaded this to the PyPi. You must develop-install instead.
+```bash
+$ pip install modcfg
+```
+### Develop-install
 
 The classic method:
 
@@ -106,7 +108,7 @@ $ poetry install
 
 ### Why did you make this
 
-![why](./why.png)
+![why](https://raw.githubusercontent.com/ThatXliner/modcfg/master/why.png)
 
 [Lark](https://github.com/lark-parser/lark) is epic.
 
