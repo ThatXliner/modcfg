@@ -1,9 +1,14 @@
 # ModCFG
 ![YEs](https://raw.githubusercontent.com/ThatXliner/modcfg/master/noo.png)
 
-[![codecov](https://codecov.io/gh/ThatXliner/modcfg/branch/master/graph/badge.svg)](https://codecov.io/gh/ThatXliner/modcfg) [![Documentation Status](https://readthedocs.org/projects/modcfg/badge/?version=latest)](https://modcfg.readthedocs.io/en/latest/?badge=latest) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![CI](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/ThatXliner/modcfg/branch/master/graph/badge.svg)](https://codecov.io/gh/ThatXliner/modcfg) [![Documentation Status](https://readthedocs.org/projects/modcfg/badge/?version=latest)](https://modcfg.readthedocs.io/en/latest/?badge=latest) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![CI](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/ThatXliner/modcfg/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/modcfg)](https://pypi.org/project/modcfg/)
 
 > YEs, another configuration language
+
+A whitespace-sensitive configuration language and data format.
+
+---
+
 
 Seriously, how many configuration languages do we have? From the top of my head, I can only name:
 
