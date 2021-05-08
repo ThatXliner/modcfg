@@ -4,8 +4,9 @@ import string
 import sys
 from textwrap import dedent as _
 
-import modcfg
 import pytest
+
+import modcfg
 from modcfg import Module
 
 # TODO: Test Errors

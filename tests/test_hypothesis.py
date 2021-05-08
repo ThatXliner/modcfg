@@ -7,9 +7,10 @@ import sys
 from enum import Enum
 from functools import lru_cache
 
-import modcfg.parser
-from hypothesis import HealthCheck, assume, given, settings, reproduce_failure
+from hypothesis import HealthCheck, assume, given, reproduce_failure, settings
 from hypothesis import strategies as st
+
+import modcfg.parser
 from modcfg import Module
 
 NON_DIGIT = "".join(set(string.ascii_letters) - set(string.digits))
