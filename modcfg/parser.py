@@ -123,7 +123,7 @@ def dumps(
         components.Module,
     ],
 ) -> str:
-    R"""Converts objects to `str` that can be `loads`\ ed back.
+    r"""Converts objects to `str` that can be `loads`\ ed back.
 
     Basically `json.dumps` but for ModCFG.
 

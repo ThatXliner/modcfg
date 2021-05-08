@@ -1,7 +1,9 @@
-import toml
-import modcfg
-from pathlib import Path
 import importlib
+from pathlib import Path
+
+import toml
+
+import modcfg
 
 VERSION = modcfg.__version__
 
