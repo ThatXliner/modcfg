@@ -26,14 +26,16 @@ class MainTransformer(lark.Transformer):
     ALL_NUMBERS = lambda self, x: ast.literal_eval(x)  # type: ignore
     CNAME = lambda self, x: str(x)  # type: ignore
     # TODO: dateutil for full iso support
-    def DATE(self, x: str) -> datetime.date:
+    @staticmethod
+    def DATE(x: str) -> datetime.date:
         clean = utils.FUNCTIONS["date"].search(x).group(1)
         try:
             return datetime.date.fromisoformat(clean)
         except ValueError as error:
             raise errors.InvalidDateFormat("Invalid date format: %s" % clean) from error
 
-    def DATETIME(self, x: str) -> datetime.datetime:
+    @staticmethod
+    def DATETIME(x: str) -> datetime.datetime:
         clean = utils.FUNCTIONS["datetime"].search(x).group(1)
         try:
             return datetime.datetime.fromisoformat(clean)
@@ -57,13 +59,16 @@ class MainTransformer(lark.Transformer):
         self._options: Dict[str, Union[List[enum.Enum], bool]] = kwargs
         super().__init__(*args)
 
-    def MULTILINE_STR(self, text: str) -> str:
+    @staticmethod
+    def MULTILINE_STR(text: str) -> str:
         return utils.parse_strings(3, text)
 
-    def STRING(self, text: str) -> str:
+    @staticmethod
+    def STRING(text: str) -> str:
         return utils.parse_strings(1, text)
 
-    def module(self, stuff) -> components.Module:  # type: ignore
+    @staticmethod
+    def module(stuff) -> components.Module:  # type: ignore
         args = stuff
 
         return components.Module(
