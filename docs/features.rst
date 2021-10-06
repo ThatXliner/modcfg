@@ -412,7 +412,7 @@ Strings
 
 Single-line strings can be single quoted (``'``) or double quoted (``"``). You can leave out the quotes if the string contents matches the following regex:
 
-:regexp:`[a-zA-Z_]\w*`
+:regexp:`[a-zA-Z_]\\w*`
 
 Multiline strings can also be single or double quoted. They are denoted with 2 quote characters.
 
