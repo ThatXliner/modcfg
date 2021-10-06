@@ -123,7 +123,7 @@ Here's another example:
 
     module ThatXliner:
         personality = :is_cool
-        hair_color => brown
+        hair_color => black
         coder = true
     module SomePythoniast:
         hates = :polymorphism
@@ -159,7 +159,7 @@ Here's another example:
             name="ThatXliner",
             contents={
                 "personality": <MyFirstEnum.is_cool: 'we are swag'>,
-                "hair_color": "brown",
+                "hair_color": "black",
                 "coder": True,
             },
         ),
@@ -457,7 +457,7 @@ Key-value separation characters
 
 Currently, I can't decide whether the key separation character (the `:` in `{hello: world}`) should be which character. So I made it the following characters letting *you* decide.
 
- * **:** Good ol' comma
+ * **:** Good ol' colon
  * **=>** Fat arrow
  * **->** Skinny arrow
  * **=** Equal sign
